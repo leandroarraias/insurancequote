@@ -25,6 +25,7 @@ public class InsuranceQuoteEntity {
     @Id
     @GeneratedValue
     private UUID id;
+    private UUID insurancePolicyId;
     private UUID productId;
     private UUID offerId;
     private String category;

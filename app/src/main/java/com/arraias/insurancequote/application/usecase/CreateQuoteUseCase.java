@@ -5,6 +5,7 @@ import com.arraias.insurancequote.application.exception.InvalidOfferRuntimeExcep
 import com.arraias.insurancequote.application.exception.InvalidProductRuntimeException;
 import com.arraias.insurancequote.application.exception.InvalidQuoteRequestRuntimeException;
 import com.arraias.insurancequote.application.usecase.integration.CatalogServiceClient;
+import com.arraias.insurancequote.application.usecase.integration.InsurancePolicyClient;
 import com.arraias.insurancequote.application.usecase.repository.InsuranceQuoteRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,16 @@ public class CreateQuoteUseCase {
     @Autowired
     private InsuranceQuoteRepository repository;
 
+    @Autowired
+    private InsurancePolicyClient insurancePolicyClient;
+
     public QuoteResponse create(QuoteRequest request) {
         Product product = catalogService.getProduct(request.getProductId());
         Offer offer = catalogService.getOffer(request.getOfferId());
         validate(request, product, offer);
-        return repository.saveQuote(request);
+        QuoteResponse quoteResponse = repository.saveQuote(request);
+        insurancePolicyClient.sendQuote(new PolicyRequest(quoteResponse.getId()));
+        return quoteResponse;
     }
 
     private void validate(QuoteRequest request, Product product, Offer offer) {

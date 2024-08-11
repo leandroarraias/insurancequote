@@ -11,4 +11,6 @@ public interface InsuranceQuoteRepository {
 
     QuoteResponse searchQuote(UUID quoteId);
 
+    void addPolicy(UUID quoteId, UUID policyId);
+
 }

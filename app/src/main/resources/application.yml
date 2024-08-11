@@ -1,4 +1,7 @@
 spring:
+  activemq:
+    in-memory: true
+    broker-url: vm://localhost
   application:
     name: insurancequote
   datasource:
@@ -15,6 +18,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+server:
+  port: 8080
 springdoc:
   api-docs:
     path: /api-docs

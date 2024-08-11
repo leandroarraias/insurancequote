@@ -1,8 +1,5 @@
 package com.arraias.insurancequote.application.domain;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -19,6 +16,7 @@ import java.util.UUID;
 public class QuoteResponse {
 
     private UUID id;
+    private UUID insurancePolicyId;
     private UUID productId;
     private UUID offerId;
     private CategoryType category;

@@ -5,10 +5,12 @@ import com.arraias.insurancequote.adapter.persistence.mapper.InsuranceQuoteMappe
 import com.arraias.insurancequote.adapter.persistence.repository.InsuranceQuoteCrudRepository;
 import com.arraias.insurancequote.application.domain.QuoteRequest;
 import com.arraias.insurancequote.application.domain.QuoteResponse;
+import com.arraias.insurancequote.application.exception.BusinessRuntimeException;
 import com.arraias.insurancequote.application.usecase.repository.InsuranceQuoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -32,5 +34,13 @@ public class InsuranceQuoteRepositoryAdapter implements InsuranceQuoteRepository
     public QuoteResponse searchQuote(UUID quoteId) {
         InsuranceQuoteEntity entity = crudRepository.findById(quoteId).orElse(null);
         return mapper.toDomain(entity);
+    }
+
+    @Override
+    public void addPolicy(UUID quoteId, UUID policyId) {
+        InsuranceQuoteEntity entity = crudRepository.findById(quoteId).orElseThrow();
+        entity.setInsurancePolicyId(policyId);
+        entity.setUpdatedAt(LocalDateTime.now());
+        crudRepository.save(entity);
     }
 }
