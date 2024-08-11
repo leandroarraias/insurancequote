@@ -31,6 +31,7 @@ A qualquer momento o usuário pode realizar a consulta da situação atual da co
  - app: Código fonte da aplicação
  - img: Imagens utilizadas na elaboração do README.md
  - infra: Configuração da infraestrutura necessária para execução da aplicação
+ - insomnia: Coleção do Insomnia para execução da API
 
 # Arquitetura
 
@@ -98,7 +99,8 @@ A página de documentação da API no formato Swagger pode ser acessada [aqui](h
 
 ### Execução da API
 
-Abaixo segue um exemplo das requisiçãos HTTP para a aplicação realizadas no Insomnia. Para maiores detalhes, acessar a página Swagger da aplicação.
+Abaixo segue um exemplo das requisiçãos HTTP para a aplicação realizadas no Insomnia. Para maiores detalhes, acessar a
+página Swagger da aplicação ou utilizar a collection fornecida para uso com o Insomnia.
 
 #### Solicitação de cotação
 ```
