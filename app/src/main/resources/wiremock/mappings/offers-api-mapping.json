@@ -1,0 +1,145 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/offers/8452c5f3-f508-413e-b146-5e34cf1badaa"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "id": "8452c5f3-f508-413e-b146-5e34cf1badaa",
+          "product_id": "7e8a8a99-80ba-4f40-aab5-6608ef9dafed",
+          "name": "Family Life Insurance",
+          "created_at": "2024-08-10T11:00:00",
+          "active": true,
+          "coverages": [
+            {
+              "type": "FIRE",
+              "value": 500000.00
+            },
+            {
+              "type": "NATURAL_DISASTERS",
+              "value": 600000.00
+            },
+            {
+              "type": "CIVIL_LIABILITY",
+              "value": 80000.00
+            },
+            {
+              "type": "THEFT",
+              "value": 100000.00
+            }
+          ],
+          "assistances": [
+            "ELECTRICIAN",
+            "FUNERAL_ASSISTANCE",
+            "PLUMBER",
+            "TWENTY_FOUR_KEYCHAIN"
+          ],
+          "monthly_premium_amount": {
+            "max_amount": 100.74,
+            "min_amount": 50.0,
+            "suggested_amount": 60.25
+          }
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/offers/a389df09-074a-423f-9b89-3bb392ab8ec2"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "id": "a389df09-074a-423f-9b89-3bb392ab8ec2",
+          "product_id": "7e8a8a99-80ba-4f40-aab5-6608ef9dafed",
+          "name": "Family Life Insurance",
+          "created_at": "2024-08-10T11:00:00",
+          "active": true,
+          "coverages": [
+            {
+              "type": "FIRE",
+              "value": 500000.00
+            },
+            {
+              "type": "NATURAL_DISASTERS",
+              "value": 600000.00
+            },
+            {
+              "type": "CIVIL_LIABILITY",
+              "value": 80000.00
+            },
+            {
+              "type": "THEFT",
+              "value": 100000.00
+            }
+          ],
+          "assistances": [
+            "ELECTRICIAN",
+            "PLUMBER",
+            "TWENTY_FOUR_KEYCHAIN"
+          ],
+          "monthly_premium_amount": {
+            "max_amount": 100.74,
+            "min_amount": 50.0,
+            "suggested_amount": 60.25
+          }
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/offers/2de095f4-5f5a-4525-b1ed-42a0f859f815"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "id": "2de095f4-5f5a-4525-b1ed-42a0f859f815",
+          "product_id": "7e8a8a99-80ba-4f40-aab5-6608ef9dafed",
+          "name": "Family Life Insurance",
+          "created_at": "2024-08-10T11:00:00",
+          "active": true,
+          "coverages": [
+            {
+              "type": "FIRE",
+              "value": 500000.00
+            },
+            {
+              "type": "NATURAL_DISASTERS",
+              "value": 600000.00
+            },
+            {
+              "type": "CIVIL_LIABILITY",
+              "value": 80000.00
+            },
+            {
+              "type": "THEFT",
+              "value": 100000.00
+            }
+          ],
+          "assistances": [
+            "PLUMBER",
+            "TWENTY_FOUR_KEYCHAIN"
+          ],
+          "monthly_premium_amount": {
+            "max_amount": 100.74,
+            "min_amount": 50.0,
+            "suggested_amount": 60.25
+          }
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    }
+  ]
+}
