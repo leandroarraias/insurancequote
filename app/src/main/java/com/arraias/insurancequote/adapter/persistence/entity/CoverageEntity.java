@@ -1,6 +1,5 @@
 package com.arraias.insurancequote.adapter.persistence.entity;
 
-import com.arraias.insurancequote.application.domain.CoverageType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

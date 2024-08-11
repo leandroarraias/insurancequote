@@ -9,11 +9,6 @@ public class InvalidOfferRuntimeException extends RuntimeException {
 
     private final UUID offerId;
 
-    public InvalidOfferRuntimeException(UUID offerId, String message) {
-        super(message);
-        this.offerId = offerId;
-    }
-
     public InvalidOfferRuntimeException(UUID offerId, String message, Throwable cause) {
         super(message, cause);
         this.offerId = offerId;

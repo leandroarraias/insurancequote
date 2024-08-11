@@ -3,6 +3,7 @@ package com.arraias.insurancequote.adapter.web.exceptionhandler;
 import com.arraias.insurancequote.application.exception.InvalidOfferRuntimeException;
 import com.arraias.insurancequote.application.exception.InvalidProductRuntimeException;
 import com.arraias.insurancequote.application.exception.InvalidQuoteRequestRuntimeException;
+import com.arraias.insurancequote.application.exception.QuoteValidationFailedRuntimeException;
 import io.micrometer.tracing.TraceContext;
 import io.micrometer.tracing.Tracer;
 import jakarta.servlet.http.HttpServletRequest;
@@ -78,7 +79,7 @@ public class GlobalExceptionHandler {
 		ErrorMessage errorMessage = new ErrorMessage(
 				"Invalid product id: " + ex.getProductId(), getSpanId(), getTraceId());
 
-		return new ResponseEntity<>(errorMessage, BAD_REQUEST);
+		return new ResponseEntity<>(errorMessage, UNPROCESSABLE_ENTITY);
 
 	}
 
@@ -86,14 +87,21 @@ public class GlobalExceptionHandler {
 	public final ResponseEntity<ErrorMessage> handleException(InvalidOfferRuntimeException ex) {
 		log.error(ex.getMessage(), ex);
 		ErrorMessage errorMessage = new ErrorMessage("Invalid offer id: " + ex.getOfferId(), getSpanId(), getTraceId());
-		return new ResponseEntity<>(errorMessage, BAD_REQUEST);
+		return new ResponseEntity<>(errorMessage, UNPROCESSABLE_ENTITY);
+	}
+
+	@ExceptionHandler(QuoteValidationFailedRuntimeException.class)
+	public final ResponseEntity<ErrorMessage> handleException(QuoteValidationFailedRuntimeException ex) {
+		log.error(ex.getMessage(), ex);
+		ErrorMessage errorMessage = new ErrorMessage(ex.getMessage(), getSpanId(), getTraceId());
+		return new ResponseEntity<>(errorMessage, UNPROCESSABLE_ENTITY);
 	}
 
 	@ExceptionHandler(InvalidQuoteRequestRuntimeException.class)
 	public final ResponseEntity<ErrorMessage> handleException(InvalidQuoteRequestRuntimeException ex) {
 		log.error(ex.getMessage(), ex);
 		ErrorMessage errorMessage = new ErrorMessage(ex.getMessage(), getSpanId(), getTraceId());
-		return new ResponseEntity<>(errorMessage, BAD_REQUEST);
+		return new ResponseEntity<>(errorMessage, UNPROCESSABLE_ENTITY);
 	}
 
 	@ExceptionHandler(HttpMessageNotReadableException.class)
