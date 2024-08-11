@@ -6,16 +6,17 @@ Microserviço destinado a processar cotação de seguros, capaz de receber e con
 
 ### Funcionamento
 
-Ao receber a requisição, o microserviço consulta dados do produto e oferta informados no serviço de catálogo. Por se tratar de
+Ao receber a requisição, o microserviço consulta os dados do produto e oferta informados no serviço de catálogo. Por se tratar de
 uma demonstração, a representação do serviço é realizada pelo WireMock que provê endpoints para consulta de produtos e ofertas
 pré cadastrados.
 
 Os dados da requisição são então validados contra as regras explicitadas na próxima seção. Uma vez que a requisição é válida,
 os dados da cotação são armazenados no banco de dados e em seguida enviados para o serviço de apólice. Também por se tratar
 de uma demonstração, aqui o serviço de apólice é representado pelo ActiveMQ que, uma vez recebido os dados da cotação,
-imediatamente retorna os dados para o microserviço concluir o processamento do mesmo.
+imediatamente retorna os dados para o microserviço concluir o processamento do mesmo. O microserviço atualiza
+o registro da cotação no banco de dados com o número da apólice.
 
-Em qualquer momento o usuário pode realizar a consulta da situação atual da cotação.
+A qualquer momento o usuário pode realizar a consulta da situação atual da cotação.
 
 ### Regras de validação da requisição
 
